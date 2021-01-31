@@ -10,22 +10,22 @@ class WaterHeater(object):
 
     def __init__(self):
         super(WaterHeater, self).__init__()
-        self.__observers = []
-        self.__temperature = 25
+        self._observers = []
+        self._temperature = 25
 
     def getTemperature(self):
-        return self.__temperature
+        return self._temperature
 
     def setTemperature(self, temperature):
-        self.__temperature = temperature
-        print("current temperature is:", self.__temperature)
+        self._temperature = temperature
+        print("current temperature is:", self._temperature)
         self.notifyObservers()
 
     def addObserver(self, observer):
-        self.__observers.append(observer)
+        self._observers.append(observer)
 
     def notifyObservers(self):
-        for o in self.__observers:
+        for o in self._observers:
             o.update(self)
 
 
