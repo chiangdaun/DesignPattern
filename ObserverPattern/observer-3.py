@@ -47,7 +47,7 @@ class Account(Observable):
         # 计算本次登录与最近几次登录的地区差距。
         # 这里只是简单地用字符串匹配来模拟，真实的项目中应该调用地理信息相关的服务
         latestRegion = self.__latestRegion.get(name)
-        return latestRegion is not None and latestRegion != region;
+        return latestRegion is not None and latestRegion != region
 
 
 class SmsSender(Observer):
