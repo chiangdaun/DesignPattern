@@ -3,9 +3,11 @@
 Author:duan
 Date: 2021/1/30 18:36
 """
+from ObserverPattern.observer import Observer
+from ObserverPattern.observer import Observable
 
 
-class WaterHeater(object):
+class WaterHeater(Observable):
     """热水器：战胜寒冬的有利武器"""
 
     def __init__(self):
@@ -21,15 +23,8 @@ class WaterHeater(object):
         print("current temperature is:", self._temperature)
         self.notifyObservers()
 
-    def addObserver(self, observer):
-        self._observers.append(observer)
 
-    def notifyObservers(self):
-        for o in self._observers:
-            o.update(self)
-
-
-class WashingMode(object):
+class WashingMode(Observer):
     """该模式用于洗澡用"""
 
     def update(self, observable, object=None):
